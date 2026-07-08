@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching | Aria Posner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/logo.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/logo.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/build/index.min.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-shell nav-inner">
+            <a class="brand" href="index.html"><img src="images/logo.png" alt="Aria Posner" class="brand-logo"></a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="listen.html">Listen</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="site-shell">
+        <section class="section page-hero page-hero-bg teaching-hero">
+            <div class="hero-copy">
+                <h1>Teaching</h1>
+                <p>I offer private lessons both online and in-person. Please reach out in the form below!</p>
+            </div>
+        </section>
+        <section class="section section-grid">
+            <div class="section-copy">
+                <h2>Teaching Philosophy</h2>
+                <p>I believe music has the power to enrich lives at every stage, and that every student can grow through thoughtful instruction, encouragement, and consistent practice. Learning an instrument develops not only technical skill and artistry but also perseverance, discipline, creativity, and confidence—qualities that extend far beyond music.</p>
+                <p>My goal is to create a positive, engaging, and supportive learning environment where students of all ages feel inspired to learn. I emphasize a strong technical foundation, a beautiful tone, expressive musicianship, and joyful music-making while tailoring each lesson to the individual needs, interests, and aspirations of every student. Whether a student is pursuing music professionally or simply playing for personal fulfillment, I am committed to helping them reach their fullest potential and cultivate a lifelong love of music.</p>
+            </div>
+            <div class="section-image">
+                <img src="images/stage-wide.jpg" alt="Cellists performing on stage">
+            </div>
+        </section>
+        <section class="section section-grid reverse-grid">
+            <div class="section-copy">
+                <h2>Experience</h2>
+                <p>I am a Suzuki-certified cello teacher through all ten books and completed two years of long-term Suzuki teacher training at the Cleveland Institute of Music, where I earned a minor in Suzuki Pedagogy alongside my performance degree.</p>
+                <p>I currently serve as Orchestra Director at Academe of the Oaks, where I lead a chamber orchestra and help students develop their ensemble skills and musical artistry. I have taught students of all ages and experience levels in both in-person and online lessons. I enjoy working with young beginners, advancing students, adult learners, and serious pre-professional musicians alike. Whether a student is playing their very first notes or preparing advanced repertoire, I strive to provide thoughtful, individualized instruction that supports each person’s unique goals and musical growth.</p>
+            </div>
+            <div class="section-image">
+                <img src="images/rehearsal.jpg" alt="Students rehearsing together">
+            </div>
+        </section>
+        <section class="section contact-form-section">
+            <h2>Teaching Inquiries</h2>
+            <form class="contact-form" id="teachingForm">
+                <div class="form-grid-two-col">
+                    <div class="form-left">
+                        <div class="form-row">
+                            <label for="name">Name</label>
+                            <input id="name" name="name" type="text" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="subject">Subject</label>
+                            <input id="subject" name="subject" type="text" required>
+                        </div>
+                    </div>
+                    <div class="form-right">
+                        <div class="form-row">
+                            <label for="message">Message</label>
+                            <span class="field-hint">Please tell me a little about what you are looking for and your musical background, and if you would like to meet online or in-person!</span>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button class="button" type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer class="site-footer site-shell">
+        <div class="footer-content">
+            <p><img src="images/logo.png" alt="Aria Posner" class="footer-logo"> <strong>Aria Posner</strong> • Atlanta, GA</p>
+            <p>Email: <a href="mailto:aria.posner@gmail.com">aria.posner@gmail.com</a> • <a href="contact.html">Contact</a></p>
+            <p>Copyright © 2026 Aria Posner | All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('teachingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const data = {
+                service_id: "service_ynp5nqo",
+                template_id: "template_x0miqxh",
+                user_id: "zKsJXG_pcNqOJ34wQ",
+                template_params: {
+                    title: document.querySelector('[name="subject"]').value,
+                    name: document.querySelector('[name="name"]').value,
+                    time: Date.now(),
+                    message: document.querySelector('[name="message"]').value,
+                    email: document.querySelector('[name="email"]').value
+                }
+            };
+            
+            fetch('https://api.emailjs.com/api/v1.0/email/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    const message = document.createElement('div');
+                    message.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 40px; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); z-index: 10000; text-align: center; max-width: 400px; font-family: Inter, sans-serif; line-height: 1.6;';
+                    
+                    message.innerHTML = '<p style="margin: 0 0 20px; font-size: 16px; color: #2f5847;">Thank you for reaching out! Your message has been sent.</p><p style="margin: 0; font-size: 14px; color: #666;">If you do not receive an automated confirmation email, please reach out to <strong>aria.posner@gmail.com</strong> directly.</p>';
+                    
+                    const closeBtn = document.createElement('button');
+                    closeBtn.textContent = '×';
+                    closeBtn.style.cssText = 'position: absolute; top: 12px; right: 12px; background: none; border: none; font-size: 28px; color: #666; cursor: pointer; padding: 0; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;';
+                    closeBtn.onclick = () => message.remove();
+                    message.appendChild(closeBtn);
+                    document.body.appendChild(message);
+                    document.getElementById('teachingForm').reset();
+                } else {
+                    alert('Failed to send message. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to send message. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>

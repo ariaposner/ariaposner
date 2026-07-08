@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Aria Posner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/logo.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/logo.png" sizes="16x16">
+    <link rel="apple-touch-icon" href="images/logo.png">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-shell nav-inner">
+            <a class="brand" href="index.html"><img src="images/logo.png" alt="Aria Posner" class="brand-logo"></a>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="listen.html">Listen</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="site-shell">
+        <section class="section page-hero about-hero">
+            <div class="hero-copy">
+                <p>Atlanta-based cellist</p>
+                <h1>Aria Posner</h1>
+                <div class="hero-actions">
+                    <a class="button" href="contact.html">Book a Performance</a>
+                    <a class="button-secondary" href="listen.html">Listen</a>
+                </div>
+                <div class="hero-bio">
+                    <p>Aria Posner is an Atlanta-based cellist working as both a performer and teacher. Since returning to Atlanta in 2025, she has won section positions in the Greenville Symphony Orchestra and the Columbus Symphony Orchestra (GA). Aria also performs regularly as a substitute musician with the Atlanta Ballet, the Atlanta Opera, the Atlanta Pops Orchestra, the Savannah Philharmonic, and the Charleston, Mobile, and Hilton Head Symphonies, among other ensembles in the southeast.</p>
+
+                    <p>In addition to her passion for orchestral playing, Aria enjoys a wide variety of musical styles. She has been a featured artist in the Constellation Concert series, performing music by Frank Sinatra with Big Band, and in the Oconee Performing Arts Society's Broadway and Christmas concerts. She also works as a session musician and performs regularly for weddings and events, covering genres from pop and jazz to classical.</p>
+
+                    <p>Aria has served as the orchestra director at Academe of the Oaks since fall of 2025 and maintains a vibrant private studio both in-person and online.</p>
+
+                    <p>She earned her master's degree in Cello Performance from the Royal Academy of Music in London, where she studied with esteemed cellist Robert Cohen. During her time in London, she became deeply engaged in the city's dynamic musical community. She co-founded Trio Thalassa, a piano trio that quickly gained recognition—winning the Historical Women Composers Prize, placing third in the Harold Craxton Prize, and being selected for the 2024/25 Hans Keller Forum Residency. The trio recently performed a series of seven concerts in January 2026 in Cambridge, London, and Oxford.</p>
+
+                    <p>Aria earned her Bachelor's Degree in Cello Performance with distinction from the Cleveland Institute of Music in 2023, studying with Dr. Melissa Kraut. Additionally, she completed a minor in Suzuki Pedagogy under Abbey Hansen, receiving long-term teacher training and certification in all 10 Suzuki books.</p>
+
+                    <p>She has attended prestigious festivals, including the American Institute of Musical Studies in Graz, Austria, Round Top Festival Institute, Sitka International Cello Seminar, Ascent International Music Festival, Bowdoin International Music Festival, and Green Mountain Chamber Music Festival.</p>
+
+                    <p>In addition to her performance career, Aria is deeply committed to giving back to the community and using her artistry for meaningful impact. She is a regular contributor to the CBH Strings Fundraising Concert Series and founded Concert to Cure, a performance series that has raised significant funds for the Ovarian Cancer Institute, in 2016.</p>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/image-1782878376206.png" alt="Aria Posner headshot" class="portrait">
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer site-shell">
+        <div class="footer-content">
+            <p><img src="images/logo.png" alt="Aria Posner" class="footer-logo"> <strong>Aria Posner</strong> • Atlanta, GA</p>
+            <p>Email: <a href="mailto:aria.posner@gmail.com">aria.posner@gmail.com</a> • <a href="contact.html">Contact</a></p>
+            <p>Copyright © 2026 Aria Posner | All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+    (function(){
+        function syncBioHeight(){
+            var hero = document.querySelector('.page-hero.about-hero');
+            if(!hero) return;
+            var img = hero.querySelector('.hero-image img, .hero-image .portrait');
+            var bio = hero.querySelector('.hero-bio');
+            if(!img || !bio) return;
+            // ensure image has loaded
+            var setMax = function(){
+                var h = img.clientHeight;
+                if(h && h>0){
+                    bio.style.maxHeight = h + 'px';
+                }
+            };
+            if(img.complete){ setMax(); }
+            else { img.addEventListener('load', setMax); }
+            // update on resize
+            window.addEventListener('resize', function(){
+                // small delay for layout
+                setTimeout(setMax, 120);
+            });
+        }
+        document.addEventListener('DOMContentLoaded', syncBioHeight);
+    })();
+    </script>
+</body>
+</html>
