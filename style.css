@@ -305,6 +305,12 @@ img {
     margin-top: 50px;
     margin-bottom: 40px;
 }
+.home-title-row {
+    display: block;
+}
+.mobile-home-logo {
+    display: none;
+}
 .hero-side-cards {
     display: flex;
     flex-direction: column;
@@ -331,9 +337,24 @@ img {
         order: 1;
         width: 100%;
         justify-self: center;
-        margin-top: 12px;
+        margin-top: 0;
         margin-bottom: 6px;
         text-align: center;
+    }
+    .page-hero.home-hero .home-title-row {
+        order: 1;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 12px;
+    }
+    .page-hero.home-hero .mobile-home-logo {
+        display: block;
+        height: 48px;
+        width: auto;
+        mix-blend-mode: multiply;
     }
     .page-hero.home-hero .hero-image {
         order: 2;
@@ -940,9 +961,17 @@ body.listen-page .video-grid {
     }
 }
 @media (max-width: 720px) {
+    .site-header {
+        top: max(0px, env(safe-area-inset-top));
+        padding-top: max(34px, env(safe-area-inset-top));
+    }
     .site-header .nav-inner {
         flex-direction: column;
         align-items: stretch;
+        padding-top: 16px;
+    }
+    .site-header .brand {
+        display: none;
     }
     .site-header nav {
         overflow-x: auto;
@@ -952,7 +981,7 @@ body.listen-page .video-grid {
         flex-wrap: nowrap;
         gap: 10px;
         width: max-content;
-        margin: 0 auto;
+        margin: 4px auto 0;
     }
     .nav-list a {
         font-size: 0.88rem;
