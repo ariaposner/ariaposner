@@ -322,6 +322,29 @@ img {
 @media (max-width: 960px) {
     .page-hero.home-hero.hero-left {
         grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .page-hero.home-hero .hero-copy {
+        display: contents;
+    }
+    .page-hero.home-hero .hero-copy h1 {
+        order: 1;
+        width: 100%;
+        justify-self: center;
+        margin-top: 12px;
+        margin-bottom: 6px;
+        text-align: center;
+    }
+    .page-hero.home-hero .hero-image {
+        order: 2;
+        margin-top: 0;
+        min-height: 320px;
+    }
+    .page-hero.home-hero .hero-copy .home-copy-body {
+        order: 3;
+    }
+    .page-hero.home-hero .hero-copy .home-copy-body > p {
+        margin-top: 6px;
     }
     .hero-side-cards {
         order: 3;
@@ -578,8 +601,17 @@ body.listen-page .video-grid {
     body.listen-page .video-grid {
         width: 100%;
         margin-left: 0;
-        grid-template-columns: 1fr;
-        gap: 12px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+    body.listen-page .video-panel {
+        min-height: 120px;
+    }
+}
+
+@media (max-width: 420px) {
+    body.listen-page .video-panel {
+        min-height: 102px;
     }
 }
 .video-panel p {
@@ -912,10 +944,36 @@ body.listen-page .video-grid {
         flex-direction: column;
         align-items: stretch;
     }
+    .site-header nav {
+        overflow-x: auto;
+    }
     .nav-list {
-        justify-content: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 10px;
+        width: max-content;
+        margin: 0 auto;
+    }
+    .nav-list a {
+        font-size: 0.88rem;
     }
     .hero-image {
         min-height: 300px;
+    }
+}
+
+@media (max-width: 760px) {
+    body.teaching-page .section-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    body.teaching-page .section-grid.reverse-grid {
+        direction: ltr;
+    }
+    body.teaching-page .section-grid .section-image {
+        display: none;
+    }
+    body.teaching-page .section-grid .section-copy {
+        max-width: 100%;
     }
 }
